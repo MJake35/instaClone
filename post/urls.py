@@ -7,5 +7,5 @@ urlpatterns = [
     path('<uuid:post_id>', views.PostDetail, name= "post-details"),
 
     path('<uuid:post_id>/like', views.like, name= "like"),
-    path('<uuid:post_id>/favourite',views.favourite , name='favourite'),
+    path('<uuid:post_id>/favourite',views.favourite , name='post-favourite'),
 ]  

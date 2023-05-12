@@ -20,14 +20,21 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 from userauths.models import Profile
-from userauths.views import UserProfile
+from userauths.views import UserProfile, follow
+from directs.views import inbox, Directs
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('post/', include('post.urls')),
+    path('users/', include('userauths.urls')),
+    path('message/', include('directs.urls')),
 
+    # Profile url Section 
     path('<username>/', UserProfile, name="profile"),
-    path('<username>/saved', UserProfile, name="favourite")
+    path('<username>/saved', UserProfile, name="favourite"),
+    path('<username>/follow<option>', follow, name="follow"),
+
+    # message section
 ]
 
 if settings.DEBUG:

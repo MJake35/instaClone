@@ -38,11 +38,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
 
     # own
     'post',
-    # 'crispy_forms',
-    'userauths'
+    'crispy_forms',
+    'userauths',
+    'comment',
+    'directs',
 ]
 
 MIDDLEWARE = [
@@ -140,11 +143,12 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 LOGIN_REDIRECT_URL =  'index'
 
-LOGOUT_REDIRECT_URL =  ''
+LOGOUT_REDIRECT_URL =  'sign-in'
 
-LOGIN_URL = ''
+LOGIN_URL = 'sign-in'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+CRISPY_TEMPLATE_PACK = 'uni_form'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 

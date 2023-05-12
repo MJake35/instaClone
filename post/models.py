@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.db.models.signals import post_save, post_delete
 from django.utils.text import slugify
 import uuid
+from django.urls import reverse
 
 #uploading user files to a specific directory
 def user_directory_path(instance, filename):
@@ -38,8 +39,8 @@ class Post(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     likes = models.IntegerField(default=0)
 
-    # def get_absolute_url(self):
-    #     return reverse("post-details", args=[str(self.id)])
+    def get_absolute_url(self):
+        return reverse("post-details", args=[str(self.id)])
     
     def __str__(self):
         return str(self.caption)
