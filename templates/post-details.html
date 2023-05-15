@@ -15,7 +15,7 @@
 
                         <div class="post__content">
                             <div class="post__medias">
-                                <img class="post__media" src="{{post.image.url}}" alt="Post Content">
+                                <img class="post__media" src="{{post.picture.url}}" alt="Post Content">
                             </div>
                         </div>
 
@@ -82,7 +82,7 @@
                                     
                                     {% for comment in comments %}
                                         <div class="bg-white p-2">
-                                            <div class="d-flex flex-row user-info"><img class="rounded-circle" src="{{comment.user.profile.image.url}}" width="30" height="30">
+                                            <div class="d-flex flex-row user-info"><img class="rounded-circle" src="{{comment.user.profile.picture.url}}" width="30" height="30">
                                                 
                                                 <div class="d-flex flex-column justify-content-start ml-2" style="font-size: 10px;"><span class="d-block font-weight-bold name">{{comment.user.profile.first_name}} {{comment.user.profile.last_name}}</span><span class="date text-black-50">{{comment.date|date:"d M, Y"}}</span></div></a>
                                             </div>

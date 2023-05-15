@@ -13,7 +13,7 @@ from django.core.paginator import Paginator
 
 def index(request):
     
-    user = request.user.id
+    user = request.user
     posts = Stream.objects.filter(user=user)
     group_ids = []
     for post in posts:

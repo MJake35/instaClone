@@ -112,7 +112,7 @@
 										{% if direct.sender == request.user %}
 											<div class="chat-message-right pb-2">
 												<div>
-													<a href=""><img src="{{ direct.sender.profile.image.url }}" class="rounded-circle mr-1" alt="img" width="40" height="40"></a>
+													<a href=""><img src="{{ direct.sender.profile.picture.url }}" class="rounded-circle mr-1" alt="img" width="40" height="40"></a>
 													<div class="text-muted small text-nowrap mt-2" style="font-size:10px; color: rgba(180, 180, 180, 0);"><p style="font-size:10px; color: black;">{{direct.date|date:"d M, Y"}}</p></div>
 
 												</div>

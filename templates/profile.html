@@ -32,7 +32,7 @@
 
                 <div class="profile-image">
 
-                    <img src="{{profile.image.url}}" alt="" style="width: 200px; height: 200px;">
+                    <img src="{{profile.user.image.url}}" alt="" style="width: 200px; height: 200px;">
 
                 </div>
 
@@ -59,7 +59,7 @@
                         {% endif %}
 
                         {% if request.user.is_authenticated and request.user != profile.user %}
-                                <a href="{% url 'conversation' profile.user  %}" class="btn profile-edit-btn">Message</a> <br><br>
+                                <a href="{% url 'new-message' profile.user  %}" class="btn profile-edit-btn">Message</a> <br><br>
                         {% endif %}
                         <br>
 
