@@ -1,8 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 from post.models import Post
-
-from PIL import Image
 from django.db.models.base import Model
 from django.db.models.fields import DateField
 from django.urls import reverse
