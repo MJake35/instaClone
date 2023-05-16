@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 from post.models import Post
+import PIL
+from PIL import Image
 from django.db.models.base import Model
 from django.db.models.fields import DateField
 from django.urls import reverse
@@ -21,8 +23,21 @@ class Profile(models.Model):
     location = models.CharField(max_length=200, null=True, blank=True)
     url = models.URLField(max_length=200, null=True, blank=True)
     favourite = models.ManyToManyField(Post, blank=True)
-    def __str__(self):  
-        return self.first_name
+    
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return f'{self.user.username} - Profile'
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        
+        img = Image.open(self.image.path)
+        if img.height > 300 or img.width > 300:
+            output_size = (300, 300)
+            img.thumbnail(output_size)
+            img.save(self.image.path)
     
 
 def create_user_profile(sender, instance, created, **kwargs):

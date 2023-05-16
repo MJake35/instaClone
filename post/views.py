@@ -10,20 +10,30 @@ from comment.models import Comment
 from comment.forms import CommentForm
 from django.core.paginator import Paginator
 
+from django.db.models import Q
 
+@login_required
 def index(request):
-    
     user = request.user
+    user = request.user
+    all_users = User.objects.all()
+    follow_status = Follow.objects.filter(following=user, follower=request.user).exists()
+
+    profile = Profile.objects.all()
     posts = Stream.objects.filter(user=user)
     group_ids = []
     for post in posts:
-        group_ids.append(post.post.id)
+        group_ids.append(post.post_id)
     post_items = Post.objects.filter(id__in=group_ids).all().order_by('-posted')
     context = {
     'post_items': post_items,
+    'follow_status': follow_status,
+    'profile': profile,
+    'all_users': all_users,
     }
     return render(request, 'index.html', context)    
 
+@login_required
 def NewPost(request):
     user = request.user.id
     tags_objs = []

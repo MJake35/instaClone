@@ -98,7 +98,7 @@ def register(request):
                                     password=form.cleaned_data['password1'],)
             login(request, new_user)
             # return redirect('editprofile')
-            return redirect('index')
+            return redirect('editprofile')
     
     elif request.user.is_authenticated:
         return redirect('index')
@@ -115,7 +115,7 @@ def editProfile(request ):
     profile = Profile.objects.get(user__id=user)
 
     if request.method == "POST":
-        form = EditProfileForm(request.POST, request.FILES)
+        form = EditProfileForm(request.POST, request.FILES, instance=request.user.profile)
         if form.is_valid():
             profile.image = form.cleaned_data.get('image')
             profile.first_name = form.cleaned_data.get('first_name')

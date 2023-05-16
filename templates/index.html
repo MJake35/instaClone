@@ -140,7 +140,7 @@
 
                         <div class="post__content">
                             <div class="post__medias">
-                                <a href="{% url 'post-details' post.id %}"><img class="post__media" src="{{ post.picture.url }}" alt="Post Content" style="width: 700px; height: 348px; object-fit: cover;"></a>
+                                <a href="{% url 'post-details' post.id %}"><img class="post__media" src="{{ post.picture.url }}" alt="Post Content" style="width: 700px; height: 500px; object-fit: cover;"></a>
 <!--                                <img class="post__media" src="{% static 'assets1/insta-clone.png' %}" alt="Post Content">-->
 <!--                                <img class="post__media" src="{% static 'assets1/insta-clone.png' %}" alt="Post Content">-->
                             </div>
@@ -208,7 +208,7 @@
                         <h2>Suggestions for You</h2>
                         <button>See All</button>
                     </div>
-                        {% for user in all_users %}
+                        <!-- {% for user in all_users %}
                         {% if request.user.username != user.username %}
                         <div class="side-menu__suggestion">
                             <a href="{% url 'profile' user %}" class="side-menu__suggestion-avatar">
@@ -232,7 +232,7 @@
                         </div>
                         {% endif %}
                         {% endfor %}
-                        
+                         -->
                     </div>
                 </div>
             </div>
